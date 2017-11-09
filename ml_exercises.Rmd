@@ -1,19 +1,17 @@
 ---
-title: "ml_activities"
+title: "Machine Learning Activities"
 author: "Greg Medlock"
 date: "11/9/2017"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Unsupervised machine learning
 # exercise 1
 Let's work with a toy dataset to walk through an unsupervised learning algorithm.
 
-```{r cars}
+```{r}
 sample1 = c(0,1,1,0,0,0,1,1)
 sample2 = c(1,0,0,0,0,0,1,0)
 sample3 = c(0,1,1,0,0,1,1,1)
@@ -27,7 +25,7 @@ colnames(sample_matrix) = c('var1','var2','var3','var4','var5','var6','var7','va
 sample_matrix
 ```
 
-Given these sample, apply the algorithm we discussed to cluster the data in a hierarchical fashion. To remind you, the algorithm is as follows:
+Given these samples, apply the following algorithm to cluster the data in a hierarchical fashion:
 
 1. Make each sample its own cluster.
 2. Find the most similar pair (use the manhattan distance) of clusters and merge them.
@@ -36,12 +34,22 @@ Given these sample, apply the algorithm we discussed to cluster the data in a hi
 
 What does your final clustering look like? Which samples are in your two largest clusters? According to the clustering, which samples are the most similar and most different from each other?
 
-## Including Plots
+# exercise 2
 
-You can also embed plots, for example:
+Let's do some clustering of real biological data. Load a subset of expression data from a human study as shown below. Three data structures will be generated, named as follows: sampleInfo, geneAnnotation, and geneExpression. We will cluster and visualize the data with heatmap.2, so load the gplots package. matrixStats will also come in handy.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r, message=FALSE}
+library(GSE5859Subset)
+data(GSE5859Subset)
+library(gplots)
+library(matrixStats)
+?rowMads
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Subset the data to include only the 25 genes with the highest standard deviation. Then, use heatmap.2 to make a heatmap showing the sampleInfo$group with color, the date as labels, the rows labelled with chromosome, and scaling the rows.
+
+* Which genes appear most variable?
+* Does the date seem to influence group membership?
+* Try changing the clustering method and the associated distance metric (hint: look at the distfun and hclustfun arguments in heatmap.2). Can you get the groups to stop clustering together? What does your result suggest about the data?
+* Based on the clustering, what do you think the two groups in the experiment are?
+
