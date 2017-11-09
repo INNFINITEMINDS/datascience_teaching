@@ -169,8 +169,24 @@ library(matrixStats)
 <ul>
 <li>Which genes appear most variable?</li>
 <li>Does the date seem to influence group membership?</li>
-<li>Try changing the clustering method and the associated distance metric (hint: look at the distfun and hclustfun arguments in heatmap.2). Can you get the groups to stop clustering together? What does your result suggest about the data?</li>
+<li>Try changing the clustering agglomeration method and the associated distance metric (hint: look at the distfun and hclustfun arguments in heatmap.2). Can you get the groups to stop clustering together? What does your result suggest about the data?</li>
 <li>Based on the clustering, what do you think the two groups in the experiment are?</li>
+</ul>
+<div id="supervised-learning" class="section level2">
+<h2>Supervised learning</h2>
+</div>
+</div>
+<div id="exercise-3" class="section level1">
+<h1>exercise 3</h1>
+<p>Let’s demonstrate one of the simplest examples of supervised learning: using linear regression to predict new values.</p>
+<p>Load the training and test sets from <a href="https://github.com/gregmedlock/datascience_teaching" class="uri">https://github.com/gregmedlock/datascience_teaching</a> (train_regression.csv and test_regression.csv, respectively).</p>
+<p>Use the lm() function to generate a linear model that predict y from x using the training set.</p>
+<ul>
+<li>Determine R^2 for the fitted model (at this point, use the training data to calculate this.). Does this model fit the data well?</li>
+</ul>
+<p>Now, use predict() to generate predicted values of y using the values for x in the test set.</p>
+<ul>
+<li>Determine R^2 again, this time calculating it using the predicted y values and the actual y values for the test set. How good are the predictions? Does the model fit the test set as well as it did the training set?</li>
 </ul>
 </div>
 

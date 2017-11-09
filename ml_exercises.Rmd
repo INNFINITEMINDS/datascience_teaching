@@ -50,6 +50,20 @@ Subset the data to include only the 25 genes with the highest standard deviation
 
 * Which genes appear most variable?
 * Does the date seem to influence group membership?
-* Try changing the clustering method and the associated distance metric (hint: look at the distfun and hclustfun arguments in heatmap.2). Can you get the groups to stop clustering together? What does your result suggest about the data?
+* Try changing the clustering agglomeration method and the associated distance metric (hint: look at the distfun and hclustfun arguments in heatmap.2). Can you get the groups to stop clustering together? What does your result suggest about the data?
 * Based on the clustering, what do you think the two groups in the experiment are?
 
+## Supervised learning
+# exercise 3
+
+Let's demonstrate one of the simplest examples of supervised learning: using linear regression to predict new values.
+
+Load the training and test sets from https://github.com/gregmedlock/datascience_teaching (train_regression.csv and test_regression.csv, respectively).
+
+Use the lm() function to generate a linear model that predict y from x using the training set.
+
+* Determine R^2 for the fitted model (at this point, use the training data to calculate this.). Does this model fit the data well?
+
+Now, use predict() to generate predicted values of y using the values for x in the test set.
+
+* Determine R^2 again, this time calculating it using the predicted y values and the actual y values for the test set. How good are the predictions? Does the model fit the test set as well as it did the training set?
