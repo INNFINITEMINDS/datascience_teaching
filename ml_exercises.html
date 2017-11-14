@@ -178,15 +178,24 @@ library(matrixStats)
 </div>
 <div id="exercise-3" class="section level1">
 <h1>exercise 3</h1>
-<p>Let’s demonstrate one of the simplest examples of supervised learning: using linear regression to predict new values.</p>
+<p>Let’s demonstrate one of the simplest examples of supervised learning: using linear regression to predict new values not seen while constructing the model.</p>
 <p>Load the training and test sets from <a href="https://github.com/gregmedlock/datascience_teaching" class="uri">https://github.com/gregmedlock/datascience_teaching</a> (train_regression.csv and test_regression.csv, respectively).</p>
-<p>Use the lm() function to generate a linear model that predict y from x using the training set.</p>
+<p>Use the lm() function to generate a linear model that predicts y from x using the training set. Reminder: formulas look like “y ~ x”, where the predictor variables are to the right of the ~.</p>
 <ul>
-<li>Determine R^2 for the fitted model (at this point, use the training data to calculate this.). Does this model fit the data well?</li>
+<li>Determine R^2 for the fitted model. At this point, use the training data and predict() to calculate this, or access one of the attributes of the object returned by lm(). Does this model fit the data well?</li>
 </ul>
 <p>Now, use predict() to generate predicted values of y using the values for x in the test set.</p>
 <ul>
 <li>Determine R^2 again, this time calculating it using the predicted y values and the actual y values for the test set. How good are the predictions? Does the model fit the test set as well as it did the training set?</li>
+</ul>
+</div>
+<div id="exercise-4" class="section level1">
+<h1>exercise 4</h1>
+<p>Now, we’ll build the same linear model as in exercise 3, but we will use multiple predictor variables. Load the new training and test sets from <a href="https://github.com/gregmedlock/datascience_teaching" class="uri">https://github.com/gregmedlock/datascience_teaching</a> (train_3dimensions_regression.csv and test_3dimensions.csv). Fit a new linear model that uses both x, x2, and x3 as predictors.</p>
+<ul>
+<li><p>Determine R^2 on the test set. Is the model better?</p></li>
+<li><p>Investigate the contribution of each variable to the model. Which variable appears to be most important? Why? hint: use summary() with the linear model as input to view useful summary metrics.</p></li>
+<li><p>To test your answer to the previous question, construct a new linear model to predict y from only the most important variable. Plot the actual value versus predicted value for the full model and make the same plot for the model that includes only the most important variables. Are the plots qualitatively different?</p></li>
 </ul>
 </div>
 

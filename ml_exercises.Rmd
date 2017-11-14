@@ -56,14 +56,24 @@ Subset the data to include only the 25 genes with the highest standard deviation
 ## Supervised learning
 # exercise 3
 
-Let's demonstrate one of the simplest examples of supervised learning: using linear regression to predict new values.
+Let's demonstrate one of the simplest examples of supervised learning: using linear regression to predict new values not seen while constructing the model.
 
 Load the training and test sets from https://github.com/gregmedlock/datascience_teaching (train_regression.csv and test_regression.csv, respectively).
 
-Use the lm() function to generate a linear model that predict y from x using the training set.
+Use the lm() function to generate a linear model that predicts y from x using the training set. Reminder: formulas look like "y ~ x", where the predictor variables are to the right of the ~.
 
-* Determine R^2 for the fitted model (at this point, use the training data to calculate this.). Does this model fit the data well?
+* Determine R^2 for the fitted model. At this point, use the training data and predict() to calculate this, or access one of the attributes of the object returned by lm(). Does this model fit the data well?
 
 Now, use predict() to generate predicted values of y using the values for x in the test set.
 
 * Determine R^2 again, this time calculating it using the predicted y values and the actual y values for the test set. How good are the predictions? Does the model fit the test set as well as it did the training set?
+
+# exercise 4
+
+Now, we'll build the same linear model as in exercise 3, but we will use multiple predictor variables. Load the new training and test sets from https://github.com/gregmedlock/datascience_teaching (train_3dimensions_regression.csv and test_3dimensions.csv). Fit a new linear model that uses both x, x2, and x3 as predictors.
+
+* Determine R^2 on the test set. Is the model better?
+
+* Investigate the contribution of each variable to the model. Which variable appears to be most important? Why? hint: use summary() with the linear model as input to view useful summary metrics.
+
+* To test your answer to the previous question, construct a new linear model to predict y from only the most important variable. Plot the actual value versus predicted value for the full model and make the same plot for the model that includes only the most important variables. Are the plots qualitatively different?
